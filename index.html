@@ -64,13 +64,21 @@ body {
   font-size: 14px;
 }
 
-/* TEXT */
+/* TITLE */
 h1 {
   font-size: clamp(26px, 6vw, 46px);
   font-weight: 800;
-  margin-bottom: 24px;
+  margin-bottom: 10px;
 }
 h1 span { color: var(--accent); }
+
+/* SCRIPT PRAISE */
+.script-desc {
+  max-width: 720px;
+  color: #9ca3af;
+  font-size: clamp(14px, 4vw, 16px);
+  margin-bottom: 22px;
+}
 
 /* SCRIPT BOX */
 .script-box {
@@ -104,9 +112,7 @@ h1 span { color: var(--accent); }
   cursor: pointer;
 }
 
-.script-scroll {
-  overflow-x: auto;
-}
+.script-scroll { overflow-x: auto; }
 pre {
   background: #000;
   padding: 16px;
@@ -125,7 +131,7 @@ pre {
 
 /* STATS */
 .stats {
-  margin-top: 32px;
+  margin-top: 28px;
   display: flex;
   gap: 16px;
   flex-wrap: wrap;
@@ -196,6 +202,9 @@ pre {
 </a>
 
 <h1><span id="gameTitle">MM2</span> Script</h1>
+<p class="script-desc" id="gameDesc">
+A fast, stable and undetected MM2 script built for smooth gameplay and long sessions.
+</p>
 
 <div class="script-box">
   <div class="script-header">
@@ -210,6 +219,7 @@ pre {
 
 <div id="copiedText">✓ Script copied</div>
 
+<!-- STATS -->
 <div class="stats">
   <div class="stat">
     <div class="stat-value">10K+</div>
@@ -233,6 +243,7 @@ pre {
 const games = {
   mm2: {
     title: "MM2",
+    desc: "A fast, stable and undetected MM2 script built for smooth gameplay and long sessions.",
     label: "🔪 MM2 Script",
     color: "#22c55e",
     dark: "#022c22",
@@ -240,6 +251,7 @@ const games = {
   },
   adopt: {
     title: "Adopt Me",
+    desc: "A powerful Adopt Me script with smooth auto features, safe execution and clean UI.",
     label: "🐶 Adopt Me Script",
     color: "#ec4899",
     dark: "#1f0a14",
@@ -247,6 +259,7 @@ const games = {
   },
   ps99: {
     title: "PS99",
+    desc: "An optimized PS99 script focused on fast farming, efficiency and low detection risk.",
     label: "💎 PS99 Script",
     color: "#3b82f6",
     dark: "#020617",
@@ -257,6 +270,7 @@ const games = {
 function setGame(key, btn) {
   const g = games[key];
   document.getElementById("gameTitle").textContent = g.title;
+  document.getElementById("gameDesc").textContent = g.desc;
   document.getElementById("scriptLabel").textContent = g.label;
   document.getElementById("scriptText").textContent = g.script;
 
