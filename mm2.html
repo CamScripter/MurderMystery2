@@ -3,169 +3,136 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CamScripter – MM2 Script</title>
+<title>CamScripter – MM2</title>
 
 <style>
-html, body {
-  margin: 0;
-  padding: 0;
-  background: #000;
-  font-family: Inter, Arial, sans-serif;
-  color: #e5e7eb;
+body{
+margin:0;
+background:#000;
+font-family:Inter,Arial;
+color:#fff;
+overflow-x:hidden;
+opacity:0;
+animation:fade 2s forwards
+}
+@keyframes fade{to{opacity:1}}
+
+.container{
+max-width:900px;
+margin:auto;
+padding:40px 16px;
+text-align:center
 }
 
-body {
-  opacity: 0;
-  animation: fadeIn 3s ease forwards;
+.header{
+display:flex;
+align-items:center;
+justify-content:center;
+gap:12px;
+margin-bottom:20px
 }
-@keyframes fadeIn { to { opacity: 1; } }
-
-.container {
-  min-height: 100vh;
-  padding: 80px 16px 40px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
+.header img{
+width:60px;height:60px;border-radius:50%;
+border:3px solid #22c55e
 }
 
-/* BACK */
-.back-btn {
-  position: fixed;
-  top: 16px;
-  left: 16px;
-  color: #22c55e;
-  font-weight: 700;
-  text-decoration: none;
+.back{
+display:inline-block;
+margin-bottom:20px;
+color:#22c55e;
+text-decoration:none;
+font-weight:700
 }
 
-/* YOUTUBE */
-.youtube-link {
-  position: fixed;
-  top: 16px;
-  right: 16px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  color: #22c55e;
-  text-decoration: none;
-}
-.youtube-avatar {
-  width: 42px;
-  height: 42px;
-  border-radius: 50%;
-  overflow: hidden;
-  border: 2px solid #22c55e;
-}
-.youtube-avatar img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-.youtube-name {
-  font-weight: 800;
-  font-size: 14px;
+h1 span{color:#22c55e}
+
+.script-box{
+background:#111;
+border:1px solid #1f2937;
+border-radius:16px;
+padding:16px;
+margin-top:20px
 }
 
-/* SCRIPT BOX */
-.script-box {
-  width: 100%;
-  max-width: 760px;
-  background: #111;
-  border: 1px solid #0f172a;
-  border-radius: 16px;
-  padding: 16px;
+/* SAĞ–SOL SCROLL */
+.script-scroll{
+overflow-x:auto;
+overflow-y:hidden;
 }
 
-.script-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 12px;
+/* SCROLLBAR */
+.script-scroll::-webkit-scrollbar{
+height:8px
+}
+.script-scroll::-webkit-scrollbar-thumb{
+background:#22c55e;
+border-radius:10px
 }
 
-#copyBtn {
-  background: #22c55e;
-  color: #022c22;
-  border: none;
-  padding: 10px 18px;
-  border-radius: 10px;
-  font-weight: 800;
-  cursor: pointer;
+pre{
+background:#000;
+padding:16px;
+border-radius:12px;
+min-width:520px;
+white-space:pre;
+color:#22c55e;
+margin:0
 }
 
-/* SADECE SAĞ-SOL */
-.script-scroll {
-  overflow-x: auto;
-  overflow-y: hidden;
-}
-.script-scroll::-webkit-scrollbar { height: 6px; }
-.script-scroll::-webkit-scrollbar-thumb {
-  background: #22c55e;
-  border-radius: 6px;
-}
-
-pre {
-  margin: 0;
-  background: #000;
-  padding: 16px;
-  border-radius: 12px;
-  min-width: 520px;
-  white-space: pre;
-  font-size: 13px;
+button{
+margin-top:14px;
+background:#22c55e;
+border:none;
+padding:14px 20px;
+border-radius:12px;
+font-weight:800;
+cursor:pointer
 }
 
-/* STATS */
-.stats {
-  margin-top: 32px;
-  display: flex;
-  gap: 16px;
-  flex-wrap: wrap;
-  justify-content: center;
+#copied{
+margin-top:10px;
+color:#22c55e;
+font-weight:700;
+display:none
 }
-.stat {
-  background: #111;
-  border: 1px solid #0f172a;
-  border-radius: 14px;
-  padding: 16px 22px;
-  min-width: 140px;
+
+.stats{
+display:flex;
+gap:16px;
+justify-content:center;
+margin-top:30px;
+flex-wrap:wrap
 }
-.stat-value {
-  color: #22c55e;
-  font-size: 24px;
-  font-weight: 800;
+.stat{
+background:#111;
+padding:16px 22px;
+border-radius:14px;
+border:1px solid #1f2937
 }
-.stat-label {
-  color: #9ca3af;
-  font-size: 13px;
-}
+.stat-value{color:#22c55e;font-size:24px;font-weight:800}
+.stat-label{color:#9ca3af;font-size:13px}
 </style>
 </head>
 
 <body>
-
-<a href="index.html" class="back-btn">← Back</a>
-
-<a class="youtube-link" href="https://www.youtube.com/channel/UCEoYs6dYZCF2cc1sQF63i1g" target="_blank">
-  <div class="youtube-avatar">
-    <img src="https://yt3.googleusercontent.com/qey-alATC2cBWoXPL3BkWuRyPcwJUz0lHfRufP0Dw8SuxlFtt0_N0-n6n1FpsbJjEq5rpNB-=s160-c-k-c0x00ffffff-no-rj">
-  </div>
-  <span class="youtube-name">CamScripter</span>
-</a>
-
 <div class="container">
-<h1>MM2 Script</h1>
-<p>Fast, stable and keyless MM2 experience.</p>
+
+<a class="back" href="index.html">← Back to Hub</a>
+
+<div class="header">
+<img src="https://yt3.googleusercontent.com/qey-alATC2cBWoXPL3BkWuRyPcwJUz0lHfRufP0Dw8SuxlFtt0_N0-n6n1FpsbJjEq5rpNB-=s160-c-k-c0x00ffffff-no-rj">
+<h2>CamScripter</h2>
+</div>
+
+<h1>Murder Mystery 2 <span>Script</span></h1>
+<p>Fast, stable and lightweight MM2 automation.</p>
 
 <div class="script-box">
-  <div class="script-header">
-    <span>🔪 MM2 Script</span>
-    <button id="copyBtn">Copy Script</button>
-  </div>
-
   <div class="script-scroll">
-<pre id="scriptText">loadstring(game:HttpGet("https://raw.githubusercontent.com/CamScripter/HorizonHubV3/refs/heads/main/MurderMystery2"))()</pre>
+    <pre id="script">loadstring(game:HttpGet("https://raw.githubusercontent.com/CamScripter/HorizonHubV3/refs/heads/main/MurderMystery2"))()</pre>
   </div>
+  <button onclick="copyScript()">Copy Script</button>
+  <div id="copied">✓ Copied</div>
 </div>
 
 <div class="stats">
@@ -178,18 +145,18 @@ pre {
     <div class="stat-label">Users</div>
   </div>
 </div>
+
 </div>
 
 <script>
-const btn = document.getElementById("copyBtn");
-const text = document.getElementById("scriptText");
-
-btn.onclick = () => {
-  navigator.clipboard.writeText(text.textContent);
-  btn.textContent = "Copied ✓";
-  setTimeout(() => btn.textContent = "Copy Script", 2000);
-};
+function copyScript(){
+  navigator.clipboard.writeText(
+    document.getElementById("script").innerText
+  );
+  const c = document.getElementById("copied");
+  c.style.display="block";
+  setTimeout(()=>{c.style.display="none"},2000);
+}
 </script>
-
 </body>
 </html>
