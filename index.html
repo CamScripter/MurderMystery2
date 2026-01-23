@@ -3,178 +3,219 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CamScripter – MM2</title>
+<title>CamScripter Hub</title>
 
 <style>
 body{
-margin:0;
-background:#000;
-font-family:Inter,Arial;
-color:#fff;
-overflow-x:hidden;
-opacity:0;
-animation:fade 1.5s forwards
+  margin:0;
+  background:#000;
+  font-family:Inter,Arial;
+  color:#fff;
+  overflow-x:hidden;
+  opacity:0;
+  animation:fade 1.5s forwards
 }
-
-/* 🔥 HAREKETLİ ARKA PLAN (SADE – PROFESYONEL) */
-body::before{
-content:"";
-position:fixed;
-inset:0;
-background:
-radial-gradient(circle at 20% 20%, rgba(34,197,94,.05), transparent 40%),
-radial-gradient(circle at 80% 30%, rgba(34,197,94,.04), transparent 45%),
-radial-gradient(circle at 50% 80%, rgba(34,197,94,.03), transparent 50%);
-animation:bgMove 12s ease-in-out infinite;
-z-index:-1;
-}
-
-@keyframes bgMove{
-0%{transform:translateY(0)}
-50%{transform:translateY(-40px)}
-100%{transform:translateY(0)}
-}
-
 @keyframes fade{to{opacity:1}}
 
 .container{
-max-width:900px;
-margin:auto;
-padding:40px 16px;
-text-align:center
+  max-width:1200px;
+  margin:auto;
+  padding:40px 16px;
+  text-align:center
 }
 
+/* HEADER */
 .header{
-display:flex;
-align-items:center;
-justify-content:center;
-gap:12px;
-margin-bottom:20px
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:16px;
+  margin-bottom:28px
 }
 .header img{
-width:60px;height:60px;border-radius:50%;
-border:3px solid #22c55e
+  width:72px;
+  height:72px;
+  border-radius:50%;
+  border:3px solid #22c55e;
+  cursor:pointer;
+  transition:.3s
 }
-
-.back{
-display:inline-block;
-margin-bottom:20px;
-color:#22c55e;
-text-decoration:none;
-font-weight:700
-}
+.header img:hover{transform:scale(1.08)}
 
 h1 span{color:#22c55e}
 
-.script-box{
-background:#111;
-border:1px solid #1f2937;
-border-radius:16px;
-padding:16px;
-margin-top:20px
+/* SUBTEXT */
+.subtitle{
+  color:#9ca3af;
+  max-width:700px;
+  margin:0 auto 40px;
+  font-size:15px;
+  line-height:1.6
 }
 
-.script-scroll{
-overflow-x:auto;
-overflow-y:hidden;
+/* CARDS */
+.cards{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:22px
 }
 
-.script-scroll::-webkit-scrollbar{
-height:8px
+.card{
+  background:#0b0b0b;
+  border:1px solid #1f2937;
+  border-radius:20px;
+  padding:26px;
+  text-align:left;
+  cursor:pointer;
+  transition:.3s
 }
-.script-scroll::-webkit-scrollbar-thumb{
-background:#22c55e;
-border-radius:10px
-}
-
-pre{
-background:#000;
-padding:16px;
-border-radius:12px;
-min-width:520px;
-white-space:pre;
-color:#22c55e;
-margin:0
+.card:hover{
+  transform:translateY(-8px);
+  box-shadow:0 10px 30px rgba(0,0,0,.6)
 }
 
-button{
-margin-top:14px;
-background:#22c55e;
-border:none;
-padding:14px 20px;
-border-radius:12px;
-font-weight:800;
-cursor:pointer
+.card h2{
+  margin:0 0 8px;
+  font-size:22px
 }
 
-#copied{
-margin-top:10px;
-color:#22c55e;
-font-weight:700;
-display:none
+.card p{
+  color:#9ca3af;
+  font-size:14px;
+  line-height:1.6
 }
 
+.tag{
+  display:inline-block;
+  margin-top:14px;
+  font-size:12px;
+  font-weight:700;
+  padding:6px 12px;
+  border-radius:999px;
+  background:#111
+}
+
+/* COLORS */
+.mm2 h2{color:#22c55e}
+.mm2 .tag{color:#22c55e;border:1px solid #22c55e}
+
+.adopt h2{color:#ec4899}
+.adopt .tag{color:#ec4899;border:1px solid #ec4899}
+
+.ps99 h2{color:#3b82f6}
+.ps99 .tag{color:#3b82f6;border:1px solid #3b82f6}
+
+.blox h2{color:#f97316}
+.blox .tag{color:#f97316;border:1px solid #f97316}
+
+/* STATS */
 .stats{
-display:flex;
-gap:16px;
-justify-content:center;
-margin-top:30px;
-flex-wrap:wrap
+  display:flex;
+  justify-content:center;
+  gap:22px;
+  margin-top:60px;
+  flex-wrap:wrap
 }
 .stat{
-background:#111;
-padding:16px 22px;
-border-radius:14px;
-border:1px solid #1f2937
+  background:#0b0b0b;
+  padding:20px 28px;
+  border-radius:18px;
+  border:1px solid #1f2937;
+  min-width:150px
 }
-.stat-value{color:#22c55e;font-size:24px;font-weight:800}
-.stat-label{color:#9ca3af;font-size:13px}
+.stat-value{
+  font-size:28px;
+  font-weight:900;
+  color:#f97316
+}
+.stat-label{
+  font-size:13px;
+  color:#9ca3af
+}
+
+/* FOOTER */
+.footer{
+  margin-top:70px;
+  font-size:13px;
+  color:#6b7280
+}
 </style>
 </head>
 
 <body>
 <div class="container">
 
-<a class="back" href="index.html">← Back to Hub</a>
-
 <div class="header">
-<img src="https://yt3.googleusercontent.com/qey-alATC2cBWoXPL3BkWuRyPcwJUz0lHfRufP0Dw8SuxlFtt0_N0-n6n1FpsbJjEq5rpNB-=s160-c-k-c0x00ffffff-no-rj">
-<h2>CamScripter</h2>
+  <a href="https://www.youtube.com/@CamScripter" target="_blank">
+    <img src="https://yt3.googleusercontent.com/qey-alATC2cBWoXPL3BkWuRyPcwJUz0lHfRufP0Dw8SuxlFtt0_N0-n6n1FpsbJjEq5rpNB-=s160-c-k-c0x00ffffff-no-rj">
+  </a>
+  <h1>Cam<span>Scripter</span> Hub</h1>
 </div>
 
-<h1>Murder Mystery 2 <span>Script</span></h1>
-<p>Fast, stable and lightweight MM2 automation.</p>
+<div class="subtitle">
+Premium Roblox scripts built for performance, safety and clean UI.<br>
+No skids. No junk. Just real hub quality.
+</div>
 
-<div class="script-box">
-  <div class="script-scroll">
-    <pre id="script">loadstring(game:HttpGet("https://raw.githubusercontent.com/CamScripter/HorizonHubV3/refs/heads/main/MurderMystery2"))()</pre>
+<div class="cards">
+
+  <div class="card mm2" onclick="location.href='mm2.html'">
+    <h2>🔪 Murder Mystery 2</h2>
+    <p>
+      High-performance MM2 automation with smooth execution.<br>
+      Designed for fast farming, stable gameplay and zero lag.
+    </p>
+    <span class="tag">MM2 • Stable • Fast</span>
   </div>
-  <button onclick="copyScript()">Copy Script</button>
-  <div id="copied">✓ Copied</div>
+
+  <div class="card adopt" onclick="location.href='adoptme.html'">
+    <h2>🐶 Adopt Me</h2>
+    <p>
+      Clean and safe farming tools for Adopt Me.<br>
+      Perfect for grinding bucks, pets and tasks effortlessly.
+    </p>
+    <span class="tag">Adopt Me • Safe • Clean UI</span>
+  </div>
+
+  <div class="card ps99" onclick="location.href='ps99.html'">
+    <h2>💎 Pet Simulator 99</h2>
+    <p>
+      Auto farming, fast progression and optimized performance.<br>
+      Built for long sessions without crashes.
+    </p>
+    <span class="tag">PS99 • Auto Farm • Smooth</span>
+  </div>
+
+  <div class="card blox" onclick="location.href='bloxfruits.html'">
+    <h2>🍊 Blox Fruits</h2>
+    <p>
+      Powerful orange-themed Blox Fruits script.<br>
+      Level faster, grind smarter and dominate the seas.
+    </p>
+    <span class="tag">Blox Fruits • OP • Orange</span>
+  </div>
+
 </div>
 
 <div class="stats">
   <div class="stat">
     <div class="stat-value">10K+</div>
-    <div class="stat-label">Executions</div>
+    <div class="stat-label">Total Executions</div>
   </div>
   <div class="stat">
     <div class="stat-value">100+</div>
-    <div class="stat-label">Users</div>
+    <div class="stat-label">Active Users</div>
+  </div>
+  <div class="stat">
+    <div class="stat-value">4</div>
+    <div class="stat-label">Games Supported</div>
   </div>
 </div>
 
+<div class="footer">
+© 2026 CamScripter — Real Hub Experience
 </div>
 
-<script>
-function copyScript(){
-navigator.clipboard.writeText(
-document.getElementById("script").innerText
-);
-const c = document.getElementById("copied");
-c.style.display="block";
-setTimeout(()=>{c.style.display="none"},2000);
-}
-</script>
+</div>
 </body>
 </html>
